@@ -1026,11 +1026,13 @@ input = """67 69 71 72 75 78 76
 15 17 20 23 25"""
 
 lines = input.splitlines()
+examples = [[7,6,4,2,1],[1,2,7,8,9],[9,7,6,2,1],[1,3,2,4,5],[8,6,4,4,1],[1,3,6,7,9]]
 lines_array = [line.split(' ') for line in lines]
+lines_array = examples
 lines_pairs = [list(zip(l, l[1:])) for l in lines_array]
 def is_ascending(lines_pair):
-    return [p[0] < p[1] for p in lines_pair]
+    return (all or not any)([int(p[0]) < int(p[1]) and abs(int(p[0]) - int(p[1])) < 4  for p in lines_pair])
 
-print(is_ascending(lines_pairs[2]))
+print([is_ascending(line) for line in lines_pairs])
 
 
