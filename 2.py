@@ -1027,5 +1027,6 @@ input = """67 69 71 72 75 78 76
 
 lines = input.splitlines()
 lines_array = [line.split(' ') for line in lines]
+pairs = [list(zip(l, l[1:])) for l in lines_array]
 
 
